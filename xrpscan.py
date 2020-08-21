@@ -76,16 +76,14 @@ for url, name in tqdm(zip(url_list, address_name)):
     Amount = []
     
     while n < 100000:
-       
         try:
-            
-            WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/div/div/div/div[3]/div/div/div/div[2]/div/div/div[2]/ul/li[2]/a')))
+            WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.XPATH, '/html/body/div/div/div/div/div/div[4]/div/div/div/div[2]/div/div/div[2]/ul/li[2]/a/span[1]')))
         
             table = driver.find_elements_by_class_name('table')[3]
             rows = table.find_elements_by_tag_name('tr')
             
             for i in range(len(rows)):   
-            # for i in range(len(rows)): 
+            
                 try:
                     columns = rows[i].find_elements_by_tag_name('td')
                     
@@ -104,9 +102,9 @@ for url, name in tqdm(zip(url_list, address_name)):
                 
                 except:
                     pass
-
+    
                     
-                if (year <= 2018) &  (year >= 2017) & (month <= 7):
+                if (year <= 2020) &  (year >= 2017) & (month <= 12):
                 
                     for j in range(len(columns)):
                         # print(columns[i].text)
@@ -133,8 +131,8 @@ for url, name in tqdm(zip(url_list, address_name)):
                             Amount.append(columns[6].text)
                         
                         print(columns[1].text)
-
-            button = driver.find_element_by_xpath('/html/body/div/div/div/div/div/div[3]/div/div/div/div[2]/div/div/div[2]/ul/li[2]/a').click()
+    
+            button = driver.find_element_by_xpath('/html/body/div/div/div/div/div/div[4]/div/div/div/div[2]/div/div/div[2]/ul/li[2]/a/span[1]').click()
             
             page_num += 1
             n += 1
